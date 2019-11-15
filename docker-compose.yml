@@ -15,7 +15,7 @@ services:
             - 'INVOICEPLANE_FQDN=https://home.problex.com/invoice'
             - 'INVOICEPLANE_URL=https://home.problex.com/invoice'
             - DB_USER=invoiceplane
-            - 'DB_PASS=[password removed]'
+#            - 'DB_PASS=[password removed]'
             - INVOICEPLANE_TIMEZONE=NewZealand/Auckland
         volumes:
             - '/home/problex/invoiceplane/files:/var/lib/invoiceplane'
