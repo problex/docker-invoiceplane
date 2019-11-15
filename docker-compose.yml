@@ -12,16 +12,21 @@ services:
     invoiceplane:
         restart: always
         environment:
+            - DB_TYPE=mysqli
+            - DB_HOST=mysql
             - 'INVOICEPLANE_FQDN=https://home.problex.com/invoice'
             - 'INVOICEPLANE_URL=https://home.problex.com/invoice'
             - DB_USER=invoiceplane
-#            - 'DB_PASS=%3IJiN@&JeEfNN'
+            - 'DB_PASS=%3IJiN@&JeEfNN'
             - INVOICEPLANE_TIMEZONE=NewZealand/Auckland
         volumes:
             - '/mnt/docker/invoiceplane/files:/var/lib/invoiceplane'
         image: 'sameersbn/invoiceplane:1.5.9-2'
     nginx:
         restart: always
+        environment:
+            - INVOICEPLANE_PHP_FPM_HOST=invoiceplane
+            - INVOICEPLANE_PHP_FPM_PORT=9000
         volumes:
             - '/mnt/docker/invoiceplane/files:/var/lib/invoiceplane'
         ports:
