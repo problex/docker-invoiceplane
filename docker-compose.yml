@@ -5,9 +5,9 @@ services:
         environment:
             - DB_NAME=invoiceplane_db
             - DB_USER=invoiceplane
-            - 'DB_PASS=[password removed]'
+            - 'DB_PASS=%3IJiN@&JeEfNN'
         volumes:
-            - '/home/problex/invoiceplane/mysql:/var/lib/mysql'
+            - '/mnt/docker/invoiceplane/mysql:/var/lib/mysql'
         image: 'sameersbn/mysql:5.7.24'
     invoiceplane:
         restart: always
@@ -15,15 +15,15 @@ services:
             - 'INVOICEPLANE_FQDN=https://home.problex.com/invoice'
             - 'INVOICEPLANE_URL=https://home.problex.com/invoice'
             - DB_USER=invoiceplane
-#            - 'DB_PASS=[password removed]'
+#            - 'DB_PASS=%3IJiN@&JeEfNN'
             - INVOICEPLANE_TIMEZONE=NewZealand/Auckland
         volumes:
-            - '/home/problex/invoiceplane/files:/var/lib/invoiceplane'
+            - '/mnt/docker/invoiceplane/files:/var/lib/invoiceplane'
         image: 'sameersbn/invoiceplane:1.5.9-2'
     nginx:
         restart: always
         volumes:
-            - '/home/problex/invoiceplane/files:/var/lib/invoiceplane'
+            - '/mnt/docker/invoiceplane/files:/var/lib/invoiceplane'
         ports:
             - '10080:80'
         image: 'sameersbn/invoiceplane:1.5.9-2'
