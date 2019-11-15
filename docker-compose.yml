@@ -24,6 +24,7 @@ services:
         image: 'sameersbn/invoiceplane:1.5.9-2'
     nginx:
         restart: always
+        command: app:nginx
         environment:
             - INVOICEPLANE_PHP_FPM_HOST=invoiceplane
             - INVOICEPLANE_PHP_FPM_PORT=9000
