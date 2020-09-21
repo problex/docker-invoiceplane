@@ -5,7 +5,7 @@ services:
         environment:
             - DB_NAME=invoiceplane_db
             - DB_USER=invoiceplane
-            - 'DB_PASS=%3IJiN@&JeEfNN'
+            - 'DB_PASS='
         volumes:
             - '/mnt/docker/invoiceplane/mysql:/var/lib/mysql'
         image: 'sameersbn/mysql:5.7.24'
@@ -14,10 +14,10 @@ services:
         environment:
             - DB_TYPE=mysqli
             - DB_HOST=mysql
-            - 'INVOICEPLANE_FQDN=https://home.problex.com/invoice'
-            - 'INVOICEPLANE_URL=https://home.problex.com/invoice'
+            - 'INVOICEPLANE_FQDN='
+            - 'INVOICEPLANE_URL='
             - DB_USER=invoiceplane
-            - 'DB_PASS=%3IJiN@&JeEfNN'
+            - 'DB_PASS='
             - INVOICEPLANE_TIMEZONE=NewZealand/Auckland
         volumes:
             - '/mnt/docker/invoiceplane/files:/var/lib/invoiceplane'
